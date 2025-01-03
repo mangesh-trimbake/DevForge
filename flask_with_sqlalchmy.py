@@ -27,8 +27,7 @@ class Product(db.Model):
     def __repr__(self):
         return f"Product(id={self.id}, name={self.name}, price={self.price}, description={self.description})"
 
-# Create the database tables
-db.create_all()
+
 
 # Routes
 @app.route('/products', methods=['GET'])
@@ -67,5 +66,7 @@ def delete_product(product_id):
     return jsonify({'message': 'Product deleted successfully'})
 
 if __name__ == '__main__':
+    # Create the database tables
+    db.create_all()
     app.run(debug=True)
 
